@@ -8,7 +8,7 @@ Have a resizable circle overlay, without recreating an MKCircle object.
 
 How to use:
 ======
-CustomMapOverlay is a subclass of MKCircleView.  So you can override 'viewForOverlay with the custom class.
+CustomMapOverlay is a subclass of MKCircleView.  In your map controller override 'viewForOverlay with the custom class.
 
 ```objective-c
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay{
@@ -27,7 +27,7 @@ CustomMapOverlay is a subclass of MKCircleView.  So you can override 'viewForOve
 -min/max will set a min and max size for the circle (also meters).   
 
 ##### UpdateCircle
-**-(void)setCircleOffset:offset;** - passing 0 will set the circle to the inital radius.
+**-(void)setCircleOffset:offset;** - passing 0 will set the circle to the inital radius.  
 
 ##### Delegate
 **-(void)onRadiusChange:(double)radius;** -Provides and update when the circle changes.   
