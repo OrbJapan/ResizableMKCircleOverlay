@@ -4,7 +4,7 @@ A resizable map circle overlay.
 
 Objective:
 ======
-Have a resizable circle overlay, without recreating an MKCircle object.
+Have a resizable circle overlay, without recreating an MKCircle object.   
 
 How to use:
 ======
@@ -33,4 +33,10 @@ CustomMapOverlay is a subclass of MKCircleView.  In your map controller override
 **-(void)onRadiusChange:(double)radius;** -Provides and update when the circle changes.   
    
 This class alone does not handle Gestures so you will need to implement that on your own or take a look at the example project.  The example project uses 'WildcardGestureRecognizer' to detect if the overlay was touched.  
+   
+Sample:
+======
+   ![alt text](screenshots/IMG_0002.PNG)
+   
+   [Demo Video](screenshots/circleoverlay.mov)
 
