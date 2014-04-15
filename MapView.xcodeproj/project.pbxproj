@@ -26,7 +26,6 @@
 		842E980A18C4628900F20554 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E980818C4628900F20554 /* Main_iPhone.storyboard */; };
 		846911A718E55E7800498D3A /* redCircledotted.png in Resources */ = {isa = PBXBuildFile; fileRef = 846911A618E55E7800498D3A /* redCircledotted.png */; };
 		847E4DC618E188AA00858E2C /* WildcardGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 847E4DC518E188AA00858E2C /* WildcardGestureRecognizer.m */; };
-		84C7FD6A18E2BB8200D316EC /* redCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C7FD6918E2BB8200D316EC /* redCircle.png */; };
 		84C7FD7018E3BA0400D316EC /* CustomMapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7FD6F18E3BA0400D316EC /* CustomMapOverlay.m */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +67,6 @@
 		846911A618E55E7800498D3A /* redCircledotted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redCircledotted.png; sourceTree = "<group>"; };
 		847E4DC418E187FE00858E2C /* WildcardGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WildcardGestureRecognizer.h; sourceTree = "<group>"; };
 		847E4DC518E188AA00858E2C /* WildcardGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WildcardGestureRecognizer.m; sourceTree = "<group>"; };
-		84C7FD6918E2BB8200D316EC /* redCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redCircle.png; path = ../../../../Downloads/redCircle.png; sourceTree = "<group>"; };
 		84C7FD6E18E3B9DC00D316EC /* CustomMapOverlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomMapOverlay.h; sourceTree = "<group>"; };
 		84C7FD6F18E3BA0400D316EC /* CustomMapOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMapOverlay.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,7 +151,6 @@
 		842E97D118C42F9B00F20554 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84C7FD6918E2BB8200D316EC /* redCircle.png */,
 				846911A618E55E7800498D3A /* redCircledotted.png */,
 				842E97D218C42F9B00F20554 /* MapView-Info.plist */,
 				842E97D318C42F9B00F20554 /* InfoPlist.strings */,
@@ -280,7 +277,6 @@
 				842E97E118C42F9B00F20554 /* Main_iPad.storyboard in Resources */,
 				842E97E618C42F9B00F20554 /* Images.xcassets in Resources */,
 				846911A718E55E7800498D3A /* redCircledotted.png in Resources */,
-				84C7FD6A18E2BB8200D316EC /* redCircle.png in Resources */,
 				842E97D518C42F9B00F20554 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
