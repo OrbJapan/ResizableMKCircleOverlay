@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = { "OrbJapan" => "" }
   s.source       = { :git => "https://github.com/OrbJapan/ResizableMKCircleOverlay.git", :tag => s.version.to_s }
   s.platform     = :ios, '6.0'
-  s.source_files = 'classes/*.{h,m}'
+  s.source_files = 'classes/*.{h,m,png}'
   s.frameworks   = 'CoreLocation', 'Foundation', 'MapKit', 'QuartzCore', 'UIKit'
   s.requires_arc = true
 end
