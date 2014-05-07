@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>B4262992-8B81-490C-9BC9-1C6E17034FDD</string>
+	<string>DC3D19F4-E044-4C66-B136-8905F354E5E4</string>
 	<key>IDESourceControlProjectName</key>
 	<string>MapView</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2FA5EC4F-3746-4AD9-BC55-189E2CBC1596</key>
-		<string>git://github.com/OrbJapan/ResizableMKCircleOverlay</string>
+		<key>0F8B8EC0-721D-41F1-AF56-E6C3F4D909B5</key>
+		<string>https://github.com/OrbJapan/ResizableMKCircleOverlay.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>MapView.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2FA5EC4F-3746-4AD9-BC55-189E2CBC1596</key>
+		<key>0F8B8EC0-721D-41F1-AF56-E6C3F4D909B5</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>git://github.com/OrbJapan/ResizableMKCircleOverlay</string>
+	<string>https://github.com/OrbJapan/ResizableMKCircleOverlay.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2FA5EC4F-3746-4AD9-BC55-189E2CBC1596</string>
+	<string>0F8B8EC0-721D-41F1-AF56-E6C3F4D909B5</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2FA5EC4F-3746-4AD9-BC55-189E2CBC1596</string>
+			<string>0F8B8EC0-721D-41F1-AF56-E6C3F4D909B5</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ResizableMKCircleOverlay</string>
 		</dict>
