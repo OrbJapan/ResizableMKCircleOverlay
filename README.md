@@ -36,7 +36,7 @@ This class alone does not handle Gestures so you will need to implement that on 
    
 Sample:
 ======
-   ![alt text](screenshots/IMG_0002.PNG)
+   ![alt text](screenshots/mapview.gif)
    
    [Demo Video](screenshots/circleoverlay.mov)
 
