@@ -94,8 +94,23 @@ double mapRadius;
     [self setNeedsDisplayInRect:[self bounds]];
 }
 
+-(void)setCircleRadius:(double)radius{
+    if(radius > MAXDIS){
+        mapRadius = MAXDIS;
+    }else if(radius < MINDIS){
+        mapRadius = MINDIS;
+    }else{
+        mapRadius = radius;
+    }
+    [self setNeedsDisplayInRect:[self bounds]];
+}
+
 -(double)getCircleOffset{
     return mapRadius/MKMapPointsPerMeterAtLatitude([[self overlay] coordinate].latitude);
+}
+
+-(double)getCircleRadius{
+    return mapRadius;
 }
 
 - (void)drawMapRect:(MKMapRect)mapRect
@@ -104,7 +119,10 @@ double mapRadius;
     
     MKMapPoint mpoint = MKMapPointForCoordinate([[self overlay] coordinate]);
     
-    circlebounds = MKMapRectMake(mpoint.x - mapRadius, mpoint.y - mapRadius, mapRadius *2, mapRadius *2);
+    //NSLog(@"offset: %f", mapRadius/MKMapPointsPerMeterAtLatitude([[self overlay] coordinate].latitude));
+    double radiusAtLatitude = (mapRadius)*MKMapPointsPerMeterAtLatitude([[self overlay] coordinate].latitude);
+    
+    circlebounds = MKMapRectMake(mpoint.x - radiusAtLatitude, mpoint.y - radiusAtLatitude, radiusAtLatitude *2, radiusAtLatitude * 2);
     CGRect overlayRect = [self rectForMapRect:circlebounds];
 
     if(imageView){

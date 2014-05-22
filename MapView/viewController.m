@@ -38,7 +38,7 @@ double const circleRadius = 0;
 #define ZOOM_DISTANCE 50
 #define DEFAULT_RADIUS 100;
 
-double offset;
+
 double oldoffset;
 double setRadius = DEFAULT_RADIUS;
 
@@ -53,6 +53,7 @@ CustomMKCircleOverlay *circleView;
     self.mapView.delegate = self;
     
     droppedAt = CLLocationCoordinate2DMake(TOKYO_LATITUDE, TOKYO_LONGITUDE);
+    
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(droppedAt,ZOOM_DISTANCE,ZOOM_DISTANCE);
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
@@ -76,7 +77,7 @@ CustomMKCircleOverlay *circleView;
         
         /* Test if the touch was within the bounds of the circle */
         if(xPath >= 0 && yPath >= 0 && xPath < mapRect.size.width && yPath < mapRect.size.height){
-            NSLog(@"Disable Map Panning");
+            //NSLog(@"Disable Map Panning");
             
             /*
              This block is to ensure scrollEnabled = NO happens before the any move event.
@@ -86,11 +87,11 @@ CustomMKCircleOverlay *circleView;
                 t = 1;
                 self.mapView.scrollEnabled = NO;
                 panEnabled = NO;
-                oldoffset = [circleView getCircleOffset];
+                oldoffset = [circleView getCircleRadius];
             });
 
 
-            NSLog(@"Hit");
+            
         }else{
             self.mapView.scrollEnabled = YES;
         }
@@ -130,18 +131,17 @@ CustomMKCircleOverlay *circleView;
                 [_mapView setRegion:region animated:TRUE];
             }
             
-            /* Calculate new offset */
-            if((oldoffset + ((mapPoint.x - lastPoint.x)/10)) > 0){
-                offset = oldoffset + ((mapPoint.x - lastPoint.x)/10);
-                [circleView setCircleOffset:oldoffset + ((mapPoint.x - lastPoint.x)/10)];
-            }
             
+            double meterDistance = (mapPoint.x - lastPoint.x)/MKMapPointsPerMeterAtLatitude(self.mapView.centerCoordinate.latitude)+oldoffset;
+            if(meterDistance > 0){
+                [circleView setCircleRadius:meterDistance];
+            }
         }
     };
     tapInterceptor.touchesEndedCallback = ^(NSSet * touches, UIEvent * event) {
         panEnabled = YES;
         
-        NSLog(@"Enable Map Panning");
+        //NSLog(@"Enable Map Panning");
         
         self.mapView.zoomEnabled = YES;
         self.mapView.scrollEnabled = YES;
@@ -161,7 +161,7 @@ CustomMKCircleOverlay *circleView;
     }
     if (newState == MKAnnotationViewDragStateEnding) {
         droppedAt = annotationView.annotation.coordinate;
-        NSLog(@"dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
+        //NSLog(@"dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
         [self addCircle];
     }
 
@@ -210,7 +210,7 @@ CustomMKCircleOverlay *circleView;
         [self.mapView removeOverlay:circle];
     circle = [MKCircle circleWithCenterCoordinate:droppedAt radius:circleRadius];
     [self.mapView addOverlay: circle];
-    [circleView setCircleOffset:offset];
+    [circleView setCircleRadius:setRadius];
 }
 
 

@@ -36,6 +36,8 @@
 -(id)initWithCircle:(MKCircle *) circle withRadius:(double)radius withMin:(int) min withMax:(int) max;
 -(id)initWithCircle:(MKCircle *) circle withRadius:(double)radius;
 -(void)setCircleOffset:(double)newOffset;
+-(void)setCircleRadius:(double)radius;
 -(double)getCircleOffset;
+-(double)getCircleRadius;
 
 @end

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ResizableMKCircleOverlay"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A resizable map circle overlay."
   s.homepage     = "http://github.com/OrbJapan/ResizableMKCircleOverlay"
   s.screenshot   = "https://raw.githubusercontent.com/OrbJapan/ResizableMKCircleOverlay/master/screenshots/IMG_0002.PNG"
