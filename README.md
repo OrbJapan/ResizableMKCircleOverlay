@@ -26,9 +26,10 @@ CustomMapOverlay is a subclass of MKCircleView.  In your map controller override
 -radius is always in meters   
 -min/max will set a min and max size for the circle (also meters).   
 
-##### UpdateCircle
+##### UpdateCircle  
 **-(void)setCircleOffset:offset;** - passing 0 will set the circle to the inital radius.  
-
+**-(void)setCircleRadius:radius;** - set the cirlce radius.  
+  
 ##### Delegate
 **-(void)onRadiusChange:(double)radius;** -Provides and update when the circle changes.   
    
