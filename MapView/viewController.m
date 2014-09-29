@@ -35,8 +35,8 @@ double const circleRadius = 0;
 /* Default Location */
 #define TOKYO_LATITUDE 35.6895
 #define TOKYO_LONGITUDE 139.6917
-#define ZOOM_DISTANCE 50
-#define DEFAULT_RADIUS 100;
+#define ZOOM_DISTANCE 500
+#define DEFAULT_RADIUS 100
 
 
 double oldoffset;
@@ -72,12 +72,13 @@ CustomMKCircleOverlay *circleView;
         
         MKMapRect mapRect = [circleView circlebounds];
         
-        double xPath = mapPoint.x - mapRect.origin.x;
-        double yPath = mapPoint.y - mapRect.origin.y;
+        
+        double xPath = mapPoint.x - (mapRect.origin.x - (mapRect.size.width/2));
+        double yPath = mapPoint.y - (mapRect.origin.y - (mapRect.size.height/2));
         
         /* Test if the touch was within the bounds of the circle */
         if(xPath >= 0 && yPath >= 0 && xPath < mapRect.size.width && yPath < mapRect.size.height){
-            //NSLog(@"Disable Map Panning");
+            NSLog(@"Disable Map Panning");
             
             /*
              This block is to ensure scrollEnabled = NO happens before the any move event.
@@ -110,7 +111,7 @@ CustomMKCircleOverlay *circleView;
             //NSLog(@"radius: %f", [circleView getCircleRadius]);
             
             /* Check if the map needs to zoom */
-            if(circleRect.size.width > mRect.size.width *.95){
+            if(circleRect.size.width > mRect.size.width *.55){
                 MKCoordinateRegion region;
                 //Set Zoom level using Span
                 MKCoordinateSpan span;
@@ -136,11 +137,20 @@ CustomMKCircleOverlay *circleView;
             if(meterDistance > 0){
                 [circleView setCircleRadius:meterDistance];
             }
+            setRadius = circleView.getCircleRadius;
+            
+            NSString *distance;
+            if(setRadius > 1000){
+                distance = [NSString stringWithFormat:@"%.02f km", setRadius / 1000];
+            }else{
+                distance = [NSString stringWithFormat:@"%.f m", setRadius];
+            }
+            [self.distanceLabel setText:distance];
+            
         }
     };
     tapInterceptor.touchesEndedCallback = ^(NSSet * touches, UIEvent * event) {
         panEnabled = YES;
-        
         //NSLog(@"Enable Map Panning");
         
         self.mapView.zoomEnabled = YES;
@@ -178,41 +188,29 @@ CustomMKCircleOverlay *circleView;
     return [annotationView init];
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay{
-    circleView = [[[CustomMKCircleOverlay alloc] initWithCircle:(MKCircle *)overlay withRadius:setRadius] init];
-    circleView.delegate = self;
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id < MKOverlay >)overlay{
+    circleView = [[CustomMKCircleOverlay alloc] initWithCircle:overlay];
+    circleView.fillColor = [UIColor redColor];
+    
     return circleView;
-}
-
--(void)onRadiusChange:(double)radius{
-    setRadius = radius;
-    
-    NSString *distance;
-    if(radius > 1000){
-        radius /= 1000;
-        distance = [NSString stringWithFormat:@"%.02f km", radius];
-    }else{
-        distance = [NSString stringWithFormat:@"%.f m", radius];
-    }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.distanceLabel setText:distance];
-    });
-}
+ }
 
 -(void)addCircle{
-    if(point == nil){
-        point = [[MKPointAnnotation alloc] init];
-        point.coordinate = droppedAt;
-        [self.mapView addAnnotation:point];
-    }
+    
     if(circle != nil)
         [self.mapView removeOverlay:circle];
     circle = [MKCircle circleWithCenterCoordinate:droppedAt radius:circleRadius];
     [self.mapView addOverlay: circle];
-    [circleView setCircleRadius:setRadius];
-}
 
+    [circleView setCircleRadius:setRadius];
+    
+    if(point == nil){
+        point = [[MKPointAnnotation alloc] init];
+        
+        point.coordinate = droppedAt;
+        [self.mapView addAnnotation:point];
+    }
+}
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
