@@ -11,9 +11,10 @@ How to use:
 CustomMapOverlay is a subclass of MKCircleView.  In your map controller override 'viewForOverlay with the custom class.
 
 ```objective-c
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay{
-    circleView = [[[CustomMKCircleOverlay alloc] initWithCircle:(MKCircle *)overlay withRadius:setRadius] init];
-    circleView.delegate = self;
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id < MKOverlay >)overlay{
+    circleView = [[CustomMKCircleOverlay alloc] initWithCircle:overlay];
+    circleView.fillColor = [UIColor redColor];
+    
     return circleView;
 }
 ```
@@ -29,10 +30,8 @@ CustomMapOverlay is a subclass of MKCircleView.  In your map controller override
 ##### UpdateCircle  
 **-(void)setCircleOffset:offset;** - passing 0 will set the circle to the inital radius.  
 **-(void)setCircleRadius:radius;** - set the cirlce radius.  
-  
-##### Delegate
-**-(void)onRadiusChange:(double)radius;** -Provides and update when the circle changes.   
-   
+    
+       
 This class alone does not handle Gestures so you will need to implement that on your own or take a look at the example project.  The example project uses 'WildcardGestureRecognizer' to detect if the overlay was touched.  
    
 Sample:
