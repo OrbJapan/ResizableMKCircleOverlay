@@ -26,9 +26,14 @@
 @synthesize MINDIS;
 @synthesize MAXDIS;
 @synthesize circlebounds;
+@synthesize alpha;
+@synthesize border;
+@synthesize delegate;
 
 #define MINDISTANCE 100.0
 #define MAXDISTANCE 2000.0
+#define DEFAULT_ALPHA .3
+#define DEFAULT_BORDER 15
 
 double radius;
 double mapRadius;
@@ -51,6 +56,7 @@ double mapRadius;
     if(radius > 0){
         mapRadius = radius;
     }
+    [self commonInit];
     return self;
 }
 
@@ -61,26 +67,21 @@ double mapRadius;
     if(radius > 0){
         mapRadius = radius;
     }
+    [self commonInit];
     return self;
 }
 
 -(id)initWithCircle:(MKCircle *)circle{
-    
     self = [super initWithCircle:circle];
     MINDIS = MINDISTANCE;
     MAXDIS = MAXDISTANCE;
+    [self commonInit];
     return self;
 }
 
--(void)setCircleOffset:(CGFloat)newOffset{
-    //NSLog(@"%f", radius);
-    mapRadius = newOffset * MKMapPointsPerMeterAtLatitude([[self overlay] coordinate].latitude);
-    if(mapRadius > MAXDIS){
-        mapRadius = MAXDIS;
-    }else if(mapRadius < MINDIS){
-        mapRadius = MINDIS;
-    }
-    [self invalidatePath];
+-(void)commonInit{
+    alpha = DEFAULT_ALPHA;
+    border = DEFAULT_BORDER;
 }
 
 -(void)setCircleRadius:(CGFloat)radius{
@@ -92,10 +93,6 @@ double mapRadius;
         mapRadius = radius;
     }
     [self invalidatePath];
-}
-
--(CGFloat)getCircleOffset{
-    return mapRadius/MKMapPointsPerMeterAtLatitude([[self overlay] coordinate].latitude);
 }
 
 -(CGFloat)getCircleRadius{
@@ -115,12 +112,20 @@ double mapRadius;
     
     
     CGContextSetStrokeColorWithColor(ctx, self.fillColor.CGColor);
-    CGContextSetFillColorWithColor(ctx, [self.fillColor colorWithAlphaComponent:0.2].CGColor);
-    CGContextSetLineWidth(ctx, 1);
+    CGContextSetFillColorWithColor(ctx, [self.fillColor colorWithAlphaComponent:alpha].CGColor);
+    CGContextSetLineWidth(ctx, border);
     CGContextSetShouldAntialias(ctx, YES);
     
     CGContextAddArc(ctx, overlayRect.origin.x, overlayRect.origin.y, radiusAtLatitude, 0, 2 * M_PI, true);
     CGContextDrawPath(ctx, kCGPathFillStroke);
+    
+    
+    if(delegate){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [delegate onRadiusChange:mapRadius];
+        });
+    }
+    
     
     UIGraphicsPopContext();
 }

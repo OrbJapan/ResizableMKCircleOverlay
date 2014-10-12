@@ -191,15 +191,21 @@ CustomMKCircleOverlay *circleView;
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id < MKOverlay >)overlay{
     circleView = [[CustomMKCircleOverlay alloc] initWithCircle:overlay];
     circleView.fillColor = [UIColor redColor];
+    circleView.delegate = self;
     
     return circleView;
  }
+
+-(void)onRadiusChange:(CGFloat)radius{
+    NSLog(@"on radius change: %f", radius);
+}
 
 -(void)addCircle{
     
     if(circle != nil)
         [self.mapView removeOverlay:circle];
     circle = [MKCircle circleWithCenterCoordinate:droppedAt radius:circleRadius];
+    
     [self.mapView addOverlay: circle];
 
     [circleView setCircleRadius:setRadius];

@@ -17,27 +17,11 @@
 		842E97E118C42F9B00F20554 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E97DF18C42F9B00F20554 /* Main_iPad.storyboard */; };
 		842E97E418C42F9B00F20554 /* viewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E97E318C42F9B00F20554 /* viewController.m */; };
 		842E97E618C42F9B00F20554 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842E97E518C42F9B00F20554 /* Images.xcassets */; };
-		842E97ED18C42F9B00F20554 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842E97EC18C42F9B00F20554 /* XCTest.framework */; };
-		842E97EE18C42F9B00F20554 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842E97CA18C42F9B00F20554 /* Foundation.framework */; };
-		842E97EF18C42F9B00F20554 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842E97CE18C42F9B00F20554 /* UIKit.framework */; };
-		842E97F718C42F9B00F20554 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 842E97F518C42F9B00F20554 /* InfoPlist.strings */; };
-		842E97F918C42F9B00F20554 /* MapViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842E97F818C42F9B00F20554 /* MapViewTests.m */; };
 		842E980318C4312800F20554 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842E980218C4312800F20554 /* MapKit.framework */; };
 		842E980A18C4628900F20554 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E980818C4628900F20554 /* Main_iPhone.storyboard */; };
-		846911A718E55E7800498D3A /* redCircledotted.png in Resources */ = {isa = PBXBuildFile; fileRef = 846911A618E55E7800498D3A /* redCircledotted.png */; };
 		847E4DC618E188AA00858E2C /* WildcardGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 847E4DC518E188AA00858E2C /* WildcardGestureRecognizer.m */; };
 		84C7FD7018E3BA0400D316EC /* CustomMapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7FD6F18E3BA0400D316EC /* CustomMapOverlay.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		842E97F018C42F9B00F20554 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 842E97BF18C42F9B00F20554 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 842E97C618C42F9B00F20554;
-			remoteInfo = MapView;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8401AC0718E5495E0066CC6A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -56,15 +40,10 @@
 		842E97E218C42F9B00F20554 /* viewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = viewController.h; sourceTree = "<group>"; };
 		842E97E318C42F9B00F20554 /* viewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = viewController.m; sourceTree = "<group>"; };
 		842E97E518C42F9B00F20554 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		842E97EB18C42F9B00F20554 /* MapViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		842E97EC18C42F9B00F20554 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		842E97F418C42F9B00F20554 /* MapViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapViewTests-Info.plist"; sourceTree = "<group>"; };
-		842E97F618C42F9B00F20554 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		842E97F818C42F9B00F20554 /* MapViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewTests.m; sourceTree = "<group>"; };
 		842E980218C4312800F20554 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		842E980618C461B400F20554 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		842E980918C4628900F20554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		846911A618E55E7800498D3A /* redCircledotted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redCircledotted.png; sourceTree = "<group>"; };
 		847E4DC418E187FE00858E2C /* WildcardGestureRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WildcardGestureRecognizer.h; sourceTree = "<group>"; };
 		847E4DC518E188AA00858E2C /* WildcardGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WildcardGestureRecognizer.m; sourceTree = "<group>"; };
 		84C7FD6E18E3B9DC00D316EC /* CustomMapOverlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomMapOverlay.h; sourceTree = "<group>"; };
@@ -84,16 +63,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		842E97E818C42F9B00F20554 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				842E97ED18C42F9B00F20554 /* XCTest.framework in Frameworks */,
-				842E97EF18C42F9B00F20554 /* UIKit.framework in Frameworks */,
-				842E97EE18C42F9B00F20554 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -101,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				842E97D018C42F9B00F20554 /* MapView */,
-				842E97F218C42F9B00F20554 /* MapViewTests */,
 				842E97C918C42F9B00F20554 /* Frameworks */,
 				842E97C818C42F9B00F20554 /* Products */,
 			);
@@ -111,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				842E97C718C42F9B00F20554 /* MapView.app */,
-				842E97EB18C42F9B00F20554 /* MapViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,7 +101,7 @@
 		842E97D018C42F9B00F20554 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				84DE47E418EBA49E00CBADE8 /* overlay */,
+				84DE47E418EBA49E00CBADE8 /* CustomMapOverlay */,
 				84DE47E518EBA4AD00CBADE8 /* gestures */,
 				842E980818C4628900F20554 /* Main_iPhone.storyboard */,
 				842E97D918C42F9B00F20554 /* jp_co_orbAppDelegate.h */,
@@ -151,7 +118,6 @@
 		842E97D118C42F9B00F20554 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				846911A618E55E7800498D3A /* redCircledotted.png */,
 				842E97D218C42F9B00F20554 /* MapView-Info.plist */,
 				842E97D318C42F9B00F20554 /* InfoPlist.strings */,
 				842E97D618C42F9B00F20554 /* main.m */,
@@ -160,31 +126,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		842E97F218C42F9B00F20554 /* MapViewTests */ = {
-			isa = PBXGroup;
-			children = (
-				842E97F818C42F9B00F20554 /* MapViewTests.m */,
-				842E97F318C42F9B00F20554 /* Supporting Files */,
-			);
-			path = MapViewTests;
-			sourceTree = "<group>";
-		};
-		842E97F318C42F9B00F20554 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				842E97F418C42F9B00F20554 /* MapViewTests-Info.plist */,
-				842E97F518C42F9B00F20554 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		84DE47E418EBA49E00CBADE8 /* overlay */ = {
+		84DE47E418EBA49E00CBADE8 /* CustomMapOverlay */ = {
 			isa = PBXGroup;
 			children = (
 				84C7FD6E18E3B9DC00D316EC /* CustomMapOverlay.h */,
 				84C7FD6F18E3BA0400D316EC /* CustomMapOverlay.m */,
 			);
-			name = overlay;
+			name = CustomMapOverlay;
 			sourceTree = "<group>";
 		};
 		84DE47E518EBA4AD00CBADE8 /* gestures */ = {
@@ -216,24 +164,6 @@
 			productReference = 842E97C718C42F9B00F20554 /* MapView.app */;
 			productType = "com.apple.product-type.application";
 		};
-		842E97EA18C42F9B00F20554 /* MapViewTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 842E97FF18C42F9B00F20554 /* Build configuration list for PBXNativeTarget "MapViewTests" */;
-			buildPhases = (
-				842E97E718C42F9B00F20554 /* Sources */,
-				842E97E818C42F9B00F20554 /* Frameworks */,
-				842E97E918C42F9B00F20554 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				842E97F118C42F9B00F20554 /* PBXTargetDependency */,
-			);
-			name = MapViewTests;
-			productName = MapViewTests;
-			productReference = 842E97EB18C42F9B00F20554 /* MapViewTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -243,11 +173,6 @@
 				CLASSPREFIX = jp.co.orb;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Orb;
-				TargetAttributes = {
-					842E97EA18C42F9B00F20554 = {
-						TestTargetID = 842E97C618C42F9B00F20554;
-					};
-				};
 			};
 			buildConfigurationList = 842E97C218C42F9B00F20554 /* Build configuration list for PBXProject "MapView" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -263,7 +188,6 @@
 			projectRoot = "";
 			targets = (
 				842E97C618C42F9B00F20554 /* MapView */,
-				842E97EA18C42F9B00F20554 /* MapViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -276,16 +200,7 @@
 				842E980A18C4628900F20554 /* Main_iPhone.storyboard in Resources */,
 				842E97E118C42F9B00F20554 /* Main_iPad.storyboard in Resources */,
 				842E97E618C42F9B00F20554 /* Images.xcassets in Resources */,
-				846911A718E55E7800498D3A /* redCircledotted.png in Resources */,
 				842E97D518C42F9B00F20554 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		842E97E918C42F9B00F20554 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				842E97F718C42F9B00F20554 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,23 +219,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		842E97E718C42F9B00F20554 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				842E97F918C42F9B00F20554 /* MapViewTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		842E97F118C42F9B00F20554 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 842E97C618C42F9B00F20554 /* MapView */;
-			targetProxy = 842E97F018C42F9B00F20554 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		842E97D318C42F9B00F20554 /* InfoPlist.strings */ = {
@@ -337,14 +236,6 @@
 				842E97E018C42F9B00F20554 /* Base */,
 			);
 			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		842E97F518C42F9B00F20554 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				842E97F618C42F9B00F20554 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		842E980818C4628900F20554 /* Main_iPhone.storyboard */ = {
@@ -461,46 +352,6 @@
 			};
 			name = Release;
 		};
-		842E980018C42F9B00F20554 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MapView.app/MapView";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MapView/MapView-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MapViewTests/MapViewTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		842E980118C42F9B00F20554 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MapView.app/MapView";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MapView/MapView-Prefix.pch";
-				INFOPLIST_FILE = "MapViewTests/MapViewTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -518,15 +369,6 @@
 			buildConfigurations = (
 				842E97FD18C42F9B00F20554 /* Debug */,
 				842E97FE18C42F9B00F20554 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		842E97FF18C42F9B00F20554 /* Build configuration list for PBXNativeTarget "MapViewTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				842E980018C42F9B00F20554 /* Debug */,
-				842E980118C42F9B00F20554 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

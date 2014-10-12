@@ -23,19 +23,24 @@
 #import "CustomMapOverlay.h"
 
 @implementation CustomMKCircleOverlay
-@synthesize delegate;
 @synthesize MINDIS;
 @synthesize MAXDIS;
 @synthesize circlebounds;
+@synthesize alpha;
+@synthesize border;
+@synthesize delegate;
 
 #define MINDISTANCE 100.0
 #define MAXDISTANCE 2000.0
+#define DEFAULT_ALPHA .3
+#define DEFAULT_BORDER 15
 
 double radius;
 double mapRadius;
 
--(id)initWithCircle:(MKCircle *)circle withRadius:(double)radius withMin:(int)min withMax:(int)max{
+-(id)initWithCircle:(MKCircle *)circle withRadius:(CGFloat)radius withMin:(int)min withMax:(int)max{
     self = [super initWithCircle:circle];
+    
     if(max > min && min > 0){
         MINDIS = min;
         MAXDIS = max;
@@ -48,26 +53,25 @@ double mapRadius;
         MINDIS = MINDISTANCE;
         MAXDIS = MAXDISTANCE;
     }
-    [self commonInit];
     if(radius > 0){
         mapRadius = radius;
     }
+    [self commonInit];
     return self;
 }
 
--(id)initWithCircle:(MKCircle *)circle withRadius:(double)radius{
+-(id)initWithCircle:(MKCircle *)circle withRadius:(CGFloat)radius{
     self = [super initWithCircle:circle];
     MINDIS = MINDISTANCE;
     MAXDIS = MAXDISTANCE;
-    [self commonInit];
     if(radius > 0){
         mapRadius = radius;
     }
+    [self commonInit];
     return self;
 }
 
 -(id)initWithCircle:(MKCircle *)circle{
-    
     self = [super initWithCircle:circle];
     MINDIS = MINDISTANCE;
     MAXDIS = MAXDISTANCE;
@@ -76,25 +80,11 @@ double mapRadius;
 }
 
 -(void)commonInit{
-    UIImage* img = [UIImage imageNamed:@"redCircledotted.png"];
-    imageView = [[UIImageView alloc] initWithImage:img];
-    imageView.opaque = YES;
-    imageView.alpha = .25;
-    [self addSubview:imageView];
+    alpha = DEFAULT_ALPHA;
+    border = DEFAULT_BORDER;
 }
 
--(void)setCircleOffset:(double)newOffset{
-    //NSLog(@"%f", radius);
-    mapRadius = newOffset * MKMapPointsPerMeterAtLatitude([[self overlay] coordinate].latitude);
-    if(mapRadius > MAXDIS){
-        mapRadius = MAXDIS;
-    }else if(mapRadius < MINDIS){
-        mapRadius = MINDIS;
-    }
-    [self setNeedsDisplayInRect:[self bounds]];
-}
-
--(void)setCircleRadius:(double)radius{
+-(void)setCircleRadius:(CGFloat)radius{
     if(radius > MAXDIS){
         mapRadius = MAXDIS;
     }else if(radius < MINDIS){
@@ -102,35 +92,42 @@ double mapRadius;
     }else{
         mapRadius = radius;
     }
-    [self setNeedsDisplayInRect:[self bounds]];
+    [self invalidatePath];
 }
 
--(double)getCircleOffset{
-    return mapRadius/MKMapPointsPerMeterAtLatitude([[self overlay] coordinate].latitude);
-}
-
--(double)getCircleRadius{
+-(CGFloat)getCircleRadius{
     return mapRadius;
 }
 
 - (void)drawMapRect:(MKMapRect)mapRect
           zoomScale:(MKZoomScale)zoomScale
           inContext:(CGContextRef)ctx{
-    
+
     MKMapPoint mpoint = MKMapPointForCoordinate([[self overlay] coordinate]);
     
-    //NSLog(@"offset: %f", mapRadius/MKMapPointsPerMeterAtLatitude([[self overlay] coordinate].latitude));
-    double radiusAtLatitude = (mapRadius)*MKMapPointsPerMeterAtLatitude([[self overlay] coordinate].latitude);
+    CGFloat radiusAtLatitude = (mapRadius)*MKMapPointsPerMeterAtLatitude([[self overlay] coordinate].latitude);
     
-    circlebounds = MKMapRectMake(mpoint.x - radiusAtLatitude, mpoint.y - radiusAtLatitude, radiusAtLatitude *2, radiusAtLatitude * 2);
+    circlebounds = MKMapRectMake(mpoint.x, mpoint.y, radiusAtLatitude *2, radiusAtLatitude * 2);
     CGRect overlayRect = [self rectForMapRect:circlebounds];
-
-    if(imageView){
+    
+    
+    CGContextSetStrokeColorWithColor(ctx, self.fillColor.CGColor);
+    CGContextSetFillColorWithColor(ctx, [self.fillColor colorWithAlphaComponent:alpha].CGColor);
+    CGContextSetLineWidth(ctx, border);
+    CGContextSetShouldAntialias(ctx, YES);
+    
+    CGContextAddArc(ctx, overlayRect.origin.x, overlayRect.origin.y, radiusAtLatitude, 0, 2 * M_PI, true);
+    CGContextDrawPath(ctx, kCGPathFillStroke);
+    
+    
+    if(delegate){
         dispatch_async(dispatch_get_main_queue(), ^{
-            imageView.frame = overlayRect;            
+            [delegate onRadiusChange:mapRadius];
         });
     }
-    [self.delegate onRadiusChange:mapRadius];
+    
+    
+    UIGraphicsPopContext();
 }
 
 @end

@@ -22,7 +22,7 @@
 #import <MapKit/MapKit.h>
 #import "CustomMapOverlay.h"
 
-@interface viewController : UIViewController<MKMapViewDelegate>
+@interface viewController : UIViewController<MKMapViewDelegate, CustomMapDelegate>
 {
     MKCircle *circle;
     MKPointAnnotation *point;
