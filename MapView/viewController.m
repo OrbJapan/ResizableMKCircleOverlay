@@ -204,7 +204,7 @@ CustomMKCircleOverlay *circleView;
     
     if(circle != nil)
         [self.mapView removeOverlay:circle];
-    circle = [MKCircle circleWithCenterCoordinate:droppedAt radius:circleRadius];
+    circle = [MKCircle circleWithCenterCoordinate:droppedAt radius:2000.0]; //Set the radius to the maximum circle size or larger
     
     [self.mapView addOverlay: circle];
 
